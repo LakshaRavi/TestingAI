@@ -131,27 +131,55 @@ body {
 .form-group input {
   padding: 0.8rem 1rem;
   font-size: 0.97rem;
-  background-color: var(--bg-input);
-  color: var(--text-input);
+  background-color: #dbeafe !important;
+  color: #000000 !important;
   border: 1.5px solid var(--border-input);
   border-radius: 8px;
   outline: none;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease;
   font-family: inherit;
+  opacity: 1 !important;
 }
 
 .form-group input::placeholder {
-  color: var(--text-placeholder);
+  color: #6b7280;
+  opacity: 1;
+}
+
+/* Fix browser autofill changing background color or text color */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #dbeafe inset !important;
+  -webkit-text-fill-color: #000000 !important;
+  caret-color: #000000;
+}
+
+/* Make the browser's native password eye icon black */
+.form-group input[type="password"]::-ms-reveal,
+.form-group input[type="password"]::-ms-clear {
+  filter: invert(0);
+  color: #000000;
+}
+
+.form-group input[type="password"]::-webkit-textfield-decoration-container {
+  color: #000000;
 }
 
 .form-group input:hover {
   border-color: #3b82f6;
+  background-color: #dbeafe !important;
+  color: #000000 !important;
 }
 
-.form-group input:focus {
-  border-color: #3b82f6;
-  background-color: #bfdbfe;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+.form-group input:focus,
+.form-group input:active {
+  border-color: #1d4ed8;
+  background-color: #dbeafe !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+  box-shadow: none;
 }
 
 /* ===== Buttons ===== */
