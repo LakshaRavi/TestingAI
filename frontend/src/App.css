@@ -3,15 +3,15 @@
   --primary: #4f46e5;
   --primary-hover: #4338ca;
 
-  --bg-page: #f3f4f6;
+  --bg-page: #ffffff;
   --bg-card: #ffffff;
-  --bg-input: #ffffff;
+  --bg-input: #dbeafe;
 
   --text-heading: #111827;
   --text-body: #374151;
   --text-muted: #6b7280;
   --text-label: #1f2937;
-  --text-input: #111827;
+  --text-input: #000000;
   --text-placeholder: #9ca3af;
 
   --border: #e5e7eb;
@@ -145,13 +145,13 @@ body {
 }
 
 .form-group input:hover {
-  border-color: #4f46e5;
+  border-color: #3b82f6;
 }
 
 .form-group input:focus {
-  border-color: var(--border-focus);
-  background-color: #f5f3ff;
-  box-shadow: var(--shadow-input-focus);
+  border-color: #3b82f6;
+  background-color: #bfdbfe;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 /* ===== Buttons ===== */
