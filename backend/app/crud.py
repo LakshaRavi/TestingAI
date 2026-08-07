@@ -50,10 +50,6 @@ def authenticate_or_create_user(db: Session, email: str, password: str, role: st
     if user:
         if user.password != password:
             return None
-        if role and user.role != role:
-            user.role = role
-            db.commit()
-            db.refresh(user)
         return user
 
     # User does not exist -> Create new account automatically with chosen role

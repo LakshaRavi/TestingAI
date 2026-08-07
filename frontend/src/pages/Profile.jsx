@@ -124,14 +124,6 @@ const Profile = () => {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <button 
-            onClick={handleOpenEditModal}
-            className="btn btn-primary"
-            style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', padding: '0.5rem 1rem' }}
-          >
-            <Edit3 size={16} /> Edit Profile
-          </button>
-          
           <span style={{ 
             background: 'rgba(34, 197, 94, 0.15)', 
             color: '#22c55e', 
@@ -205,15 +197,17 @@ const Profile = () => {
               </div>
             </div>
 
-            <div style={{ marginTop: '0.5rem' }}>
-              <button 
-                onClick={handleOpenEditModal}
-                className="btn btn-secondary"
-                style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem' }}
-              >
-                <Edit3 size={15} /> Edit Personal Information
-              </button>
-            </div>
+          </div>
+
+          {/* EDIT PROFILE BUTTON */}
+          <div style={{ padding: '1.25rem 0 0.5rem 0', borderTop: '1px solid var(--border-color)', marginTop: '1.25rem' }}>
+            <button
+              className="btn btn-primary"
+              onClick={handleOpenEditModal}
+              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+            >
+              <Edit3 size={16} /> Edit Profile Details
+            </button>
           </div>
         </div>
 
@@ -240,7 +234,7 @@ const Profile = () => {
                 </div>
 
                 <div style={{ background: 'var(--bg-dark)', padding: '1.1rem', borderRadius: 'var(--radius-md)', textAlign: 'center', border: '1px solid var(--border-color)' }}>
-                  <div style={{ fontSize: '1.8rem', fontWeight 700, color: '#6366f1' }}>{myStatuses.length}</div>
+                  <div style={{ fontSize: '1.8rem', fontWeight: 700, color: '#6366f1' }}>{myStatuses.length}</div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>Status Submissions</div>
                 </div>
 
