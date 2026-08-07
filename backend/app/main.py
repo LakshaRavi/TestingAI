@@ -75,6 +75,20 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(database.get_db)
     new_user = crud.create_user(db, user)
     return new_user
 
+@app.put("/api/users/{id}", response_model=schemas.UserResponse)
+def update_user_profile(id: int, user_update: schemas.UserUpdate, db: Session = Depends(database.get_db)):
+    if user_update.email:
+        existing = crud.get_user_by_email(db, user_update.email)
+        if existing and existing.id != id:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="An account with this email already exists"
+            )
+    updated = crud.update_user(db, id, user_update)
+    if not updated:
+        raise HTTPException(status_code=404, detail="User not found")
+    return updated
+
 # ==========================================
 # PROJECT APIs
 # ==========================================

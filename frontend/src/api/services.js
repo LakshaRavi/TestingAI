@@ -7,7 +7,8 @@ export const authAPI = {
 
 export const usersAPI = {
   getUsers: (role) => api.get('/users', { params: role ? { role } : {} }),
-  createUser: (userData) => api.post('/users', userData)
+  createUser: (userData) => api.post('/users', userData),
+  updateUser: (id, userData) => api.put(`/users/${id}`, userData)
 };
 
 export const projectsAPI = {

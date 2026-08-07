@@ -35,11 +35,6 @@ const Sidebar = () => {
       path: '/reports',
       label: 'Reports',
       icon: <FileText size={20} />
-    },
-    {
-      path: '/profile',
-      label: 'Profile',
-      icon: <User size={20} />
     }
   ];
 

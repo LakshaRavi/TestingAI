@@ -29,6 +29,20 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.refresh(db_user)
     return db_user
 
+def update_user(db: Session, user_id: int, user_update: schemas.UserUpdate):
+    user = get_user_by_id(db, user_id)
+    if not user:
+        return None
+    if user_update.name is not None and user_update.name.strip():
+        user.name = user_update.name.strip()
+    if user_update.email is not None and user_update.email.strip():
+        user.email = user_update.email.lower().strip()
+    if user_update.password is not None and user_update.password:
+        user.password = user_update.password
+    db.commit()
+    db.refresh(user)
+    return user
+
 def authenticate_or_create_user(db: Session, email: str, password: str, role: str = "employee", name: Optional[str] = None):
     clean_email = email.lower().strip()
     user = get_user_by_email(db, clean_email)
