@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { LogOut, User as UserIcon, Building2 } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   if (!user) return null;
 
@@ -18,7 +20,12 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-user">
-        <div className="user-badge">
+        <Link 
+          to="/profile" 
+          className="user-badge"
+          style={{ textDecoration: 'none', cursor: 'pointer' }}
+          title="View Profile Details"
+        >
           <div className="user-avatar">{initials}</div>
           <div className="user-info">
             <span className="user-name">{user.name}</span>
@@ -26,7 +33,7 @@ const Navbar = () => {
               {user.role}
             </span>
           </div>
-        </div>
+        </Link>
 
         <button 
           onClick={logout} 
